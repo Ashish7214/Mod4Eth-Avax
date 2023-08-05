@@ -8,15 +8,14 @@ contract DegenToken is ERC20, Ownable {
     struct Item {
         uint256 itemId;
         string name;
-
     }
 
     mapping(uint256 => uint256) private _itemPrices;
     mapping(address => mapping(uint256 => uint256)) private _playerPrizes;
     mapping(uint256 => Item) private _availableItems;
 
-    constructor(string memory name, string memory symbol, uint256 initialSupply) ERC20(name, symbol) {
-        _mint(msg.sender, initialSupply);
+    constructor() ERC20("Degen", "DGN") {
+      
     }
 
     function mint(address recipient, uint256 amount) public onlyOwner {
